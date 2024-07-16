@@ -42,7 +42,7 @@ if (Npc_IsInRoutineName(self, "Start"))
 
 ## `Npc_GetSlotItem`
 
-Sprawdza, co znajduje się w konkretnym slocie modelu NPC.
+Sprawdza, co znajduje się w konkretnym slocie modelu NPC. Zmienna `item` nie jest nadpisywana.
 
 ```csharp
 func int Npc_GetSlotItem(var C_NPC npc, var string slotName) {};
@@ -51,7 +51,11 @@ func int Npc_GetSlotItem(var C_NPC npc, var string slotName) {};
 :::info Przykład użycia
 
 ```csharp
-Npc_GetSlotItem(self, "ZS_LEFTHAND");
+var C_ITEM itm; itm = Npc_GetSlotItem(self, "ZS_LEFTHAND");
+if (Hlp_IsValidItem(itm))
+{
+    print(itm.name);
+};
 ```
 
 :::
